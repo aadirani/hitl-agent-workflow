@@ -52,8 +52,9 @@ class EndToEndTests(unittest.TestCase):
 
     def test_tampering_is_detected(self):
         entries = copy.deepcopy(self.log.entries)
-        decision = next(e for e in entries if e["event"] == "approval_decision")
-        decision["details"]["decision"] = "approve"   # someone rewrites history
+        decision = next(e for e in entries
+                        if e["event"] == "approval_decision" and e["details"]["decision"] == "reject")
+        decision["details"]["decision"] = "approve"   # someone rewrites a rejection into an approval
         ok, message = audit.verify(entries)
         self.assertFalse(ok)
         self.assertIn("modified", message)
