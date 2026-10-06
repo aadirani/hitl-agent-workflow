@@ -1,0 +1,9 @@
+{
+  "description": "Scripted human decisions for the demo (keyed by ticket).",
+  "decisions": {
+    "T-2": {"approver": "lina", "role": "it-staff", "decision": "approve", "comment": "Confirmed with finance manager"},
+    "T-3": {"approver": "sara", "role": "security", "decision": "reject", "comment": "Contractors never get Domain Admin; use a scoped install account"},
+    "T-6": {"approver": "omar", "role": "it-manager", "decision": "approve", "comment": "Users already impacted; restart agreed"},
+    "T-7": {"approver": "lina", "role": "it-staff", "decision": "approve", "comment": "Identity verified by phone; password reset only"}
+  }
+}
